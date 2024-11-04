@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "image-api",
   "main": "server.js",
-  "type": "module",
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "dev": "ts-node-dev src/server.ts",

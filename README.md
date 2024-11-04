@@ -34,6 +34,7 @@ This project is a simple file upload API built with Express.js. It allows users 
    ```bash
    git clone https://github.com/Chrismaganga/uploads
 
+   url: http://localhost:5000/
    cd uploads
    npm install
    npm run dev
