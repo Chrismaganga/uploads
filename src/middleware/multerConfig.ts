@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
       if (err) throw err;
       cb(null, buf.toString('hex') + path.extname(file.originalname));
     });
-  }
+  },
 });
 
 export const upload = multer({ storage });

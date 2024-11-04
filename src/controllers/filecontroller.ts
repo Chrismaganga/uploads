@@ -23,7 +23,7 @@ export const getFile = (req: Request, res: Response) => {
 
 export const deleteFile = (req: Request, res: Response) => {
   const filePath = path.join(uploadFolder, req.params.filename);
-  fs.unlink(filePath, err => {
+  fs.unlink(filePath, (err) => {
     if (err) return res.status(404).json({ error: 'File not found' });
     res.redirect('/');
   });

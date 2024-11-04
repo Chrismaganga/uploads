@@ -1,4 +1,9 @@
-import { deleteFile, getFile, listFiles, uploadFile } from '../controllers/filecontroller';
+import {
+  deleteFile,
+  getFile,
+  listFiles,
+  uploadFile,
+} from '../controllers/filecontroller';
 
 import { Router } from 'express';
 import { upload } from '../middleware/multerConfig';
