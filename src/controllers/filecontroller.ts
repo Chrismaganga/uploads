@@ -18,7 +18,7 @@ export const uploadFile = (req: Request, res: Response) => {
 
 export const getFile = (req: Request, res: Response) => {
   const filePath = path.join(uploadFolder, req.params.filename);
-  res.sendFile(filePath);
+  res.json({ path: filePath }).sendFile(filePath);
 };
 
 export const deleteFile = (req: Request, res: Response) => {

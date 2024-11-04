@@ -3,10 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self';">
   <title>Image Upload</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      padding-top: 20px;
+      background-color: #f5f5f5;
+    }
+
+    h2, h3 {
+      margin: 10px 0;
+      color: #cf0610;
+      block-size: auto;
+    }
+
+    form {
+      margin-bottom: 20px;
+      width: 320px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: darkslategrey;
+      border-radius: 8px;
+    }
+
+    input[type="file"] {
+      font-size: 16px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      color: #fff;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      overflow-y: auto;
+      max-height: 300px;
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    li {
+      margin: 5px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: hsl(157, 89%, 17%);
+      background-color: rgb(212, 226, 233);
+      border-radius: 5px;
+      padding: 5px 10px;
+    }
+
+    a {
+      text-decoration: none;
+      color: rgb(7, 105, 64);
+    }
+
+    a:hover {
+      color: #008000;
+    }
+
+    .files {
+      white-space: pre-wrap;
+      color: #05723b;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-  <h1>Upload an Image</h1>
+  <h3>Upload an Image</h3>
   <form action="/upload" method="POST" enctype="multipart/form-data">
     <input type="file" name="file" required>
     <button type="submit">Upload</button>
@@ -14,7 +111,9 @@
   <h2>Uploaded Files</h2>
   <ul>
     <% files.forEach(file => { %>
-      <li><a href="/files/<%= file %>"><%= file %></a></li>
+      <li>
+        <a href="/files/<%= file %>"><%= file %></a>
+      </li>
     <% }) %>
   </ul>
 </body>
